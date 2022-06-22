@@ -1,12 +1,12 @@
 package com.gokhantamkoc.javabootcamp.odevhafta3.repository;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.gokhantamkoc.javabootcamp.odevhafta3.model.Candle;
+import com.gokhantamkoc.javabootcamp.odevhafta3.util.TimeUtils;
+import com.gokhantamkoc.javabootcamp.odevhafta3.util.chart.CandleStickChart;
 
 public class CryptoDataCSVRepository implements CSVRepository {
 	
@@ -17,7 +17,26 @@ public class CryptoDataCSVRepository implements CSVRepository {
 		List<Candle> candles = new ArrayList<Candle>();
 		InputStream inputStream = this.getClass().getClassLoader().getResourceAsStream(filename);
 		// Bu alandan itibaren kodunuzu yazabilirsiniz
-		
+
+
+		DataInputStream dataInputStream=new DataInputStream(inputStream);
+		String firstRow = dataInputStream.readLine();
+		System.out.println(firstRow);
+		while (dataInputStream.available()!=0){
+			String row = dataInputStream.readLine();
+			System.out.println("abc");
+			String[] splitedRow = row.split(COMMA_DELIMITER);
+			Candle candle=new Candle(
+					Long.parseLong(splitedRow[0]),
+					Double.parseDouble(splitedRow[3]),
+					Double.parseDouble(splitedRow[4]),
+					Double.parseDouble(splitedRow[5]),
+					Double.parseDouble(splitedRow[6]),
+					Double.parseDouble(splitedRow[7])
+			);
+			candles.add(candle);
+		}
+
 		// Bu alandan sonra kalan kod'a dokunmayiniz.
 		return candles;
 	}

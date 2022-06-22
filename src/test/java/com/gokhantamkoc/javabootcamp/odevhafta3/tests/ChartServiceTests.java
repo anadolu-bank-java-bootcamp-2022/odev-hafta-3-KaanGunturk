@@ -12,11 +12,13 @@ import com.gokhantamkoc.javabootcamp.odevhafta3.repository.CryptoDataCSVReposito
 import com.gokhantamkoc.javabootcamp.odevhafta3.service.ChartService;
 import com.gokhantamkoc.javabootcamp.odevhafta3.util.chart.CandleStickChart;
 
+import java.io.IOException;
+
 @RunWith(SpringRunner.class)
 public class ChartServiceTests {
 
 	@Test
-	public void Test() {
+	public void Test() throws IOException {
 		CSVRepository csvRepository = new CryptoDataCSVRepository();
 		ChartService chartService = new ChartService(
 			csvRepository

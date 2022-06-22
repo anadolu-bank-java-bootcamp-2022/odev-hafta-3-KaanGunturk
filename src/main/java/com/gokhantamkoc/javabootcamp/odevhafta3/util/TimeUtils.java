@@ -1,5 +1,6 @@
 package com.gokhantamkoc.javabootcamp.odevhafta3.util;
 
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -20,6 +21,8 @@ public class TimeUtils {
 	}
 
 	public static Date convertToDate(long millis) {
-		// Bu metodu doldurmanizi bekliyoruz.
+		DateFormat obj = new SimpleDateFormat(UTC_DATE.toString());
+		Date date = new Date(millis);
+		return date;
 	}
 }
