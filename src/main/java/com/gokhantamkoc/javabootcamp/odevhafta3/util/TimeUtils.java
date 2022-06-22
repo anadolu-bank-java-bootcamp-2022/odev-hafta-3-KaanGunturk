@@ -21,8 +21,7 @@ public class TimeUtils {
 	}
 
 	public static Date convertToDate(long millis) {
-		DateFormat obj = new SimpleDateFormat(UTC_DATE.toString());
-		Date date = new Date(millis);
-		return date;
+		return new java.util.Date(millis);
+
 	}
 }

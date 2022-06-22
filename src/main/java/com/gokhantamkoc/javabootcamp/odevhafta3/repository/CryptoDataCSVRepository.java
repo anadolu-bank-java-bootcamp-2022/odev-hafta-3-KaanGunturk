@@ -21,10 +21,8 @@ public class CryptoDataCSVRepository implements CSVRepository {
 
 		DataInputStream dataInputStream=new DataInputStream(inputStream);
 		String firstRow = dataInputStream.readLine();
-		System.out.println(firstRow);
 		while (dataInputStream.available()!=0){
 			String row = dataInputStream.readLine();
-			System.out.println("abc");
 			String[] splitedRow = row.split(COMMA_DELIMITER);
 			Candle candle=new Candle(
 					Long.parseLong(splitedRow[0]),
