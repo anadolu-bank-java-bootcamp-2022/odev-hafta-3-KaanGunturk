@@ -21,7 +21,7 @@ public class TimeUtils {
 	}
 
 	public static Date convertToDate(long millis) {
-		return new java.util.Date(millis);
+		return new Date(millis);
 
 	}
 }
