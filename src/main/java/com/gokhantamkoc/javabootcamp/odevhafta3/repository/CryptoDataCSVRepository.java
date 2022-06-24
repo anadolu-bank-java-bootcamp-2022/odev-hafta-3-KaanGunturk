@@ -18,7 +18,7 @@ public class CryptoDataCSVRepository implements CSVRepository {
 		InputStream inputStream = this.getClass().getClassLoader().getResourceAsStream(filename);
 		// Bu alandan itibaren kodunuzu yazabilirsiniz
 
-
+		//Burda csv okuma işlemini yaptıktan sonra ekleme işlemini yaptım
 		DataInputStream dataInputStream=new DataInputStream(inputStream);
 		String firstRow = dataInputStream.readLine();
 		while (dataInputStream.available()!=0){
